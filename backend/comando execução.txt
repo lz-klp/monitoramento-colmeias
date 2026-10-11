@@ -1,0 +1,40 @@
+BACKEND FASTAPI - MVP MONITORAMENTO DE COLMEIAS
+
+1. Abra o terminal dentro desta pasta.
+
+2. Crie um ambiente virtual:
+   py -m venv .venv
+
+3. Ative:
+   .venv\Scripts\activate
+
+4. Instale as dependências:
+   py -m pip install -r requirements.txt
+
+5. Execute:
+   uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+6. Abra no navegador:
+   http://127.0.0.1:8000/docs
+
+Exemplo para POST /measurements:
+
+{
+  "device_id": "ESP32-001",
+  "hive_id": "COLMEIA-001",
+  "timestamp_ms": 15000,
+  "wifi_connected": true,
+  "temperature_internal": 34.2,
+  "humidity_internal": 62.8,
+  "temperature_external": 23.7,
+  "humidity_external": 71.4,
+  "weight_kg": null
+}
+
+Rotas principais:
+POST /measurements
+GET  /measurements/latest
+GET  /measurements
+GET  /health
+
+O arquivo colmeias.db será criado automaticamente na primeira execução.
